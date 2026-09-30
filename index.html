@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDMOT Offroad &amp; Enduro · GPS-Daten, Overlay-Routen &amp; Adventure-Tours</title>
+<meta name="description" content="MDMOT: GPS-Daten, MDMOT Overlay-Routen und Adventure-Tours für über 25 Offroad-Regionen in Europa und Nordafrika. Vom Pisten-Truck bis zur Reiseenduro – von zwei Offroadbegeisterten für dich.">
+<meta property="og:title" content="MDMOT – Offroad &amp; Enduro GPS">
+<meta property="og:description" content="Deine Route in die Offroad-Welt: GPS-Daten, Overlay-Routen &amp; Adventure-Tours für 25+ Regionen.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/news_Apuseni_update.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
+<style>
+  :root{
+    --bg:#f4f3ef; --bg-alt:#e9e7df; --ink:#1c1b18; --ink-soft:#57534a;
+    --green:#3e5c3a; --green-dark:#2c4529; --amber:#d97b29; --amber-dark:#b35f14;
+    --asphalt:#23231f; --card:#fff;
+    --radius:14px; --shadow:0 10px 30px rgba(28,27,24,.12);
+    --font-display:"Trebuchet MS","Segoe UI",Verdana,sans-serif;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.65}
+  img{max-width:100%;display:block}
+  a{color:var(--amber-dark)}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.18;font-weight:700}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:76px 0}
+  .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-dark);font-weight:700;margin-bottom:12px}
+  .section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:18px}
+  .section-lead{color:var(--ink-soft);max-width:660px;margin-bottom:40px}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(35,35,31,.94);backdrop-filter:blur(10px)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+  .brand-mark{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--amber),var(--amber-dark));display:grid;place-items:center;font-size:1.3rem}
+  .brand-name{font-family:var(--font-display);font-size:1.15rem;line-height:1.15;letter-spacing:.02em}
+  .brand-name small{display:block;font-family:var(--font-body);font-size:.7rem;color:#c9c6bd;letter-spacing:.08em;text-transform:uppercase}
+  nav ul{display:flex;gap:24px;list-style:none;align-items:center}
+  nav a{text-decoration:none;color:#e8e6df;font-size:.93rem;font-weight:500}
+  nav a:hover{color:var(--amber)}
+  .btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;border:2px solid transparent}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--amber);color:#fff;box-shadow:0 6px 18px rgba(217,123,41,.4)}
+  .btn-primary:hover{background:var(--amber-dark)}
+  .btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .nav .btn{padding:9px 18px;font-size:.88rem}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;color:#fff;background:
+      linear-gradient(100deg, rgba(35,35,31,.95) 0%, rgba(35,35,31,.85) 45%, rgba(35,35,31,.5) 100%),
+      url("assets/ADV_web_detailkarte.jpg") center/cover no-repeat;}
+  .hero-inner{padding:96px 0}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,3.5rem);max-width:760px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.01em}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p.sub{font-size:1.1rem;max-width:580px;color:rgba(255,255,255,.88);margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--asphalt);color:#fff;padding:44px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center}
+  .stat b{display:block;font-family:var(--font-display);font-size:2rem;color:var(--amber)}
+  .stat span{color:#c9c6bd;font-size:.9rem}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .about-copy p{margin-bottom:16px;color:var(--ink-soft)}
+  .about-copy b{color:var(--ink)}
+  .facts{list-style:none;margin-top:22px;display:grid;gap:12px}
+  .facts li{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid rgba(28,27,24,.08);border-radius:var(--radius);padding:14px 16px;box-shadow:0 4px 14px rgba(28,27,24,.05)}
+  .facts .ic{font-size:1.25rem;line-height:1.4}
+  .about-img{position:relative}
+  .about-img img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover}
+  .about-img::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--amber);border-radius:var(--radius);z-index:-1;opacity:.5}
+
+  /* ---------- Products ---------- */
+  .products{background:var(--bg-alt)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+  .card{background:var(--card);border-radius:var(--radius);padding:34px 28px;box-shadow:var(--shadow);border-top:4px solid var(--green);transition:transform .2s ease}
+  .card:nth-child(2){border-top-color:var(--amber)}
+  .card:nth-child(3){border-top-color:var(--asphalt)}
+  .card:hover{transform:translateY(-6px)}
+  .card .ic{font-size:2rem;margin-bottom:16px}
+  .card h3{font-size:1.3rem;margin-bottom:12px}
+  .card p{color:var(--ink-soft);font-size:.96rem;margin-bottom:14px}
+  .card ul{list-style:none;display:grid;gap:8px}
+  .card ul li{padding-left:24px;position:relative;font-size:.93rem;color:var(--ink-soft)}
+  .card ul li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
+  /* ---------- Overlay ---------- */
+  .overlay-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .overlay-grid img{border-radius:var(--radius);box-shadow:var(--shadow)}
+  .overlay-copy p{color:var(--ink-soft);margin-bottom:16px}
+  .overlay-copy ul{list-style:none;display:grid;gap:12px;margin-top:8px}
+  .overlay-copy li{padding-left:30px;position:relative;font-size:.97rem}
+  .overlay-copy li::before{content:"🧭";position:absolute;left:0}
+
+  /* ---------- Regions ---------- */
+  .regions{background:var(--asphalt);color:#fff}
+  .regions .section-lead{color:#c9c6bd}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 18px;font-size:.9rem;color:#e8e6df}
+
+  /* ---------- Gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .gallery figure{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:0;background:#fff}
+  .gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s ease}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .gallery figcaption{padding:12px 16px;font-size:.88rem;color:var(--ink-soft)}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{background:linear-gradient(120deg,var(--green-dark),var(--green));color:#fff;text-align:center}
+  .cta-band h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:14px}
+  .cta-band p{color:rgba(255,255,255,.88);max-width:580px;margin:0 auto 28px}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:stretch}
+  .contact-list{display:grid;gap:18px}
+  .contact-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid rgba(28,27,24,.08);border-radius:var(--radius);padding:18px 20px;box-shadow:0 4px 14px rgba(28,27,24,.05)}
+  .contact-item .ic{font-size:1.5rem;line-height:1.3}
+  .contact-item b{display:block;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:2px}
+  .contact-item a{color:var(--amber-dark);font-weight:600;text-decoration:none;font-size:1.02rem}
+  .contact-item a:hover{text-decoration:underline}
+  .map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);min-height:340px}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--asphalt);color:#c9c6bd;padding:44px 0;font-size:.88rem}
+  footer .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer a{color:#e8e6df}
+  footer .foot-brand{font-family:var(--font-display);font-size:1.05rem;color:#fff;display:block;margin-bottom:6px;letter-spacing:.04em}
+  .demo-note{background:#fff8e6;border:1px solid #e8d9a8;color:#6b5a1e;border-radius:10px;padding:10px 16px;font-size:.85rem;margin-top:28px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:860px){
+    section{padding:56px 0}
+    nav ul li:not(.keep){display:none}
+    .about-grid,.overlay-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+    .about-img::after{display:none}
+    .hero{min-height:auto}
+  }
+  @media (max-width:560px){
+    .gallery{grid-template-columns:1fr}
+    .hero-ctas .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <div class="brand-mark" aria-hidden="true">🏔️</div>
+      <div class="brand-name">MDMOT<small>Offroad · Enduro · GPS</small></div>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#produkte">Produkte</a></li>
+        <li><a href="#overlay">Overlay-Routen</a></li>
+        <li><a href="#regionen">Regionen</a></li>
+        <li class="keep"><a class="btn btn-primary" href="https://www.mdmot.com/contact/" target="_blank" rel="noopener">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Begrüßung">
+    <div class="wrap hero-inner">
+      <span class="eyebrow" style="color:var(--amber)">Von Offroadbegeisterten, für Offroadbegeisterte</span>
+      <h1>Deine Route in die <em>Offroad-Welt</em></h1>
+      <p class="sub">GPS-Daten, MDMOT Overlay-Routen und Adventure-Tours für über 25 Regionen – von Korsika bis Island, von den Pyrenäen bis Marokko. Testen, fahren, genießen.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://www.mdmot.com/index.php?page=shop.browse&amp;option=com_virtuemart&amp;Itemid=1" target="_blank" rel="noopener">Zum Online-Shop</a>
+        <a class="btn btn-ghost" href="#produkte">Unsere Produkte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Kennzahlen">
+    <div class="wrap stats-grid reveal">
+      <div class="stat"><b>25+</b><span>Offroad-Regionen in Europa &amp; Nordafrika</span></div>
+      <div class="stat"><b>3</b><span>Produktarten: Strecken, Reisen &amp; Straßentouren</span></div>
+      <div class="stat"><b>1.200+</b><span>News, Updates &amp; Streckenberichte</span></div>
+      <div class="stat"><b>25 Mio.+</b><span>Seitenaufrufe – eine Community voller Abenteurer</span></div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber-uns" aria-label="Über uns">
+    <div class="wrap about-grid">
+      <div class="about-copy reveal">
+        <span class="eyebrow">Über MDMOT</span>
+        <h2 class="section-title">Zwei Offroadbegeisterte mit dem Fernweh</h2>
+        <p>Wir sind zwei Offroadbegeisterte, die gerne mit dem Offroadfahrzeug auf Reise gehen – und haben MDMOT gestartet, um <b>Reiseregionen näher zu bringen</b> und dir mit fundierten Informationen die passende Tour zu finden.</p>
+        <p>Ob Tagesausflug von deinem Zuhause aus, große Reiseenduro durch eine Region oder reine Straßentour: Unsere Produkte sind aus <b>eigener Erfahrung</b> entstanden – auf Pisten, Strassen und abseits davon getestet.</p>
+        <ul class="facts">
+          <li><span class="ic" aria-hidden="true">🚐</span><span><b>Pisten-Truck:</b> unsere eigenen Fahrberichte aus Spanien, Italien und Marokko</span></li>
+          <li><span class="ic" aria-hidden="true">📚</span><span><b>Über 25 Buch-Reihen</b> mit detaillierten Karten, GPX-Daten und Beschreibungen</span></li>
+          <li><span class="ic" aria-hidden="true">🧭</span><span><b>MDMOT Overlay-Routen:</b> Navigation ohne Offroad-Gerät – funktioniert auch mit deinem Navi</span></li>
+        </ul>
+      </div>
+      <div class="about-img reveal">
+        <img src="assets/news_Apuseni_update.jpg" alt="MDMOT Buch: Apuseni Rumänien – Offroad" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUKTE -->
+  <section id="produkte" class="products" aria-label="Produkte">
+    <div class="wrap">
+      <span class="eyebrow reveal">Produkte</span>
+      <h2 class="section-title reveal">Drei Arten, auf Tour zu gehen</h2>
+      <p class="section-lead reveal">Jedes MDMOT-Buch bündelt GPS-Daten, Karten und praktische Hinweise – passend zu deinem Fahrstil und deinem Fahrzeug.</p>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="ic" aria-hidden="true">🛞</div>
+          <h3>Offroadstrecken</h3>
+          <p>Mehrere Offroadstrecken, die meist von einem oder zwei Ausgangspunkten als Tagestripp angefahren werden können.</p>
+          <ul>
+            <li>Perfekt für den Wochenend-Abenteuerkick</li>
+            <li>Von zu Hause aus startklar</li>
+            <li>Kartengrundlagen &amp; GPX-Daten inklusive</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div class="ic" aria-hidden="true">🏕️</div>
+          <h3>Offroadreise</h3>
+          <p>Offroadreise durch eine Region oder ein Land – jeden Tag an einer anderen Unterkunft.</p>
+          <ul>
+            <li>Gemischte Strecke: Offroad &amp; Strassenanteil</li>
+            <li>Je nach Land &amp; Region variiert der Anteil</li>
+            <li>Tourplanung inklusive der Etappen</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div class="ic" aria-hidden="true">🛣️</div>
+          <h3>Straßentour</h3>
+          <p>Wie die Offroadreise – nur dass die Tour ausschließlich über Teerstrassen verläuft. Neu!</p>
+          <ul>
+            <li>Reine Strassenmotorrad-Touren</li>
+            <li>Erreicht praktisch jedes Fahrzeug</li>
+            <li>AdventureLite &amp; Road-Touren im Angebot</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERLAY -->
+  <section id="overlay" aria-label="Overlay-Routen">
+    <div class="wrap overlay-grid">
+      <img class="reveal" src="assets/navi_navi.jpg" alt="Navigationsgeräte mit MDMOT Overlay-Routen" loading="lazy">
+      <div class="overlay-copy reveal">
+        <span class="eyebrow">Das MDMOT-Spezial</span>
+        <h2 class="section-title">Overlay-Routen: deine Route, wie mit dem Filzstift gezeichnet</h2>
+        <p>Stell dir vor, du legst eine Glassichtfolie über deine Landkarte und zeichnest die Route mit dem Filzstift darauf – die Karte darunter bleibt sichtbar. Genau so funktionieren unsere Overlay-Routen auf dem Navigationsgerät.</p>
+        <ul>
+          <li><b>Kein GPS-Gerät mit Offroadfunktion nötig</b> – auch einfache Straßennavigationsgeräte (z.&nbsp;B. Nüvi) funktionieren</li>
+          <li><b>Unabhängig von der Geräte-Voreinstellung</b> – keine „kürzeste" oder „schnellste Route", sondern genau deine eingezeichnete Strecke</li>
+          <li><b>Immer sichtbar, ob du auf der Route bist</b> – ideal für Offroad, wo keine Straßen im Gerät vorhanden sind</li>
+        </ul>
+        <p style="margin-top:20px"><a class="btn btn-primary" href="https://www.mdmot.com/MDMOT-Overlay-Routen.html" target="_blank" rel="noopener">Mehr zu den Overlay-Routen</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONEN -->
+  <section id="regionen" class="regions" aria-label="Regionen">
+    <div class="wrap">
+      <span class="eyebrow reveal">Regionen</span>
+      <h2 class="section-title reveal">Über 25 Regionen – vom Alpenland bis zur Sahara</h2>
+      <p class="section-lead reveal">Jede Region mit eigener Übersichtskarte, aktualisierten Strecken und Beschreibungen.</p>
+      <div class="chips reveal">
+        <span class="chip">🇫🇷 Korsika</span><span class="chip">🇫🇷 Cevennen</span><span class="chip">🇫🇷 Pyrenäen</span><span class="chip">🇪🇸 Andalusien</span><span class="chip">🇪🇸 Alicante</span><span class="chip">🇪🇸 Seealpen / Piemont</span><span class="chip">🇮🇹 Trentino / Venetien</span><span class="chip">🇮🇹 Ligurien</span><span class="chip">🇮🇹 Toskana</span><span class="chip">🇮🇹 Umbrien / Marken</span><span class="chip">🇮🇹 Friaul</span><span class="chip">🇦🇹 Österreich</span><span class="chip">🇸🇮 Slowenien</span><span class="chip">🇭🇷 Kroatien</span><span class="chip">🇦🇱 Albanien</span><span class="chip">🇵🇹 Portugal</span><span class="chip">🇲🇦 Marokko</span><span class="chip">🇹🇳 Tunesien</span><span class="chip">🇮🇸 Island</span><span class="chip">🇳🇴 Norwegen</span><span class="chip">🇬🇷 Griechenland</span><span class="chip">🇨🇾 Zypern</span><span class="chip">🇮🇹 Sardinien</span><span class="chip">🇷🇴 Rumänien</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="werkstatt" aria-label="Aus den Büchern">
+    <div class="wrap">
+      <span class="eyebrow reveal">Einblicke</span>
+      <h2 class="section-title reveal">Aus unseren MDMOT-Büchern</h2>
+      <p class="section-lead reveal">Karten, Etappenübersichten und Updates – so arbeitet man mit MDMOT.</p>
+      <div class="gallery reveal">
+        <figure>
+          <img src="assets/news_ADV_Norwegen_neu.jpg" alt="MDMOT AdventureLite Norwegen" loading="lazy">
+          <figcaption>AdventureLite Norwegen (Strassentour)</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ADV_web_detailkarte.jpg" alt="Detailkarte einer Adventure-Tour" loading="lazy">
+          <figcaption>Detailkarte: Etappen der Adventure-Tours</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/news_Apuseni_update.jpg" alt="MDMOT Buch Apuseni Rumänien" loading="lazy">
+          <figcaption>Apuseni Rumänien – Offroad-Update</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" aria-label="Jetzt entdecken">
+    <div class="wrap reveal">
+      <h2>Deine nächste Tour wartet</h2>
+      <p>Stöbere durch unsere Onlineshop, finde deine Region und starte – auf der Piste, der Straße oder dazwischen.</p>
+      <a class="btn btn-primary" href="https://www.mdmot.com/index.php?page=shop.browse&amp;option=com_virtuemart&amp;Itemid=1" target="_blank" rel="noopener">Jetzt im Shop entdecken</a>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" aria-label="Kontakt">
+    <div class="wrap">
+      <span class="eyebrow reveal">Kontakt</span>
+      <h2 class="section-title reveal">So erreichst du uns</h2>
+      <div class="contact-grid">
+        <div class="contact-list reveal">
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">📍</span>
+            <div><b>Adresse</b>MDMOT · Daniela Knöpfle<br>Eichbühlstr. 5<br>86483 Balzhausen, Deutschland</div>
+          </div>
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">✉️</span>
+            <div><b>E-Mail</b><a href="mailto:info@mdmot.de">info@mdmot.de</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">🛒</span>
+            <div><b>Onlineshop</b><a href="https://www.mdmot.com/index.php?page=shop.browse&amp;option=com_virtuemart&amp;Itemid=1" target="_blank" rel="noopener">mdmot.com – Shop</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">📰</span>
+            <div><b>Updates &amp; News</b><a href="https://www.mdmot.com/N*E*W*s/MDMOT-News/" target="_blank" rel="noopener">MDMOT-News abonnieren</a></div>
+          </div>
+        </div>
+        <div class="map reveal">
+          <iframe
+            title="Anfahrt: MDMOT, Eichbühlstr. 5, 86483 Balzhausen"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=10.4646%2C48.2317%2C10.5047%2C48.2517&amp;layer=mapnik&amp;marker=48.2417106%2C10.4846596"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="demo-note">ℹ️ <b>Vorlage für ein Angebot:</b> Diese Seite ist ein Konzeptentwurf auf Basis der Inhalte der heutigen Website. Impressum &amp; Datenschutzerklärung werden bei einer Umsetzung entsprechend ergänzt (USt-IdNr., Handelsregister, Verantwortlichkeit).</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <span class="foot-brand">MDMOT</span>
+      Offroad · Enduro · GPS<br>
+      Eichbühlstr. 5 · 86483 Balzhausen<br>
+      <a href="mailto:info@mdmot.de">info@mdmot.de</a>
+    </div>
+    <div>
+      Daniela Knöpfle · USt-IdNr. DE274935128<br>
+      © <span id="year">2026</span> MDMOT Offroad Enduro
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
